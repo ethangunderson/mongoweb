@@ -23,9 +23,12 @@ TODO
 -----------
 
 Support for:
-*GridFS
-*Editing Data
-*Ports
-*Usernames, passwords
+GridFS
+Editing Data
+Ports
+Usernames, Passwords
+
+Screenshot
+-----------------
 
 ![Screenshot](http://img.skitch.com/20100430-jdmu6nxijpbmq5ur72gwayghs7.jpg)
