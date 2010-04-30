@@ -1,0 +1,7 @@
+%h2 Databases
+
+%table
+  -for name in databases
+    %tr
+      %td
+        %a{:href => "database/#{name}"}= name

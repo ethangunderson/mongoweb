@@ -1,0 +1,49 @@
+!dark_brown = #402817
+!light_brown = #F6F4CD
+!light_gray = #FDFCF7
+
+=plain_anchor
+  a
+    text-decoration: none
+    color: black
+    font:
+      size: 1.2em
+      weight: 600
+  a:hover
+    text-decoration: underline
+
+html
+  background-color= !light_brown
+
+h2
+  margin: 0px
+  font-size: 1.3em
+  
+h3
+  margin:
+    top: 15px
+    bottom: 5px
+
+#wrapper
+  width: 800px
+  margin:
+    right: auto
+    left: auto
+  #site
+    -webkit-border-radius: 15px
+    -moz-border-radius: 15px
+    border: 2px solid
+      color= !dark_brown
+    padding: 15px
+    background-color= !light_gray
+    table
+      +plain_anchor
+      border-collapse: collapse
+      width: 100%
+      text-align: left
+      td
+        padding: 10px
+        border: 1px solid black
+img
+  float: right
+  margin-top: 10px

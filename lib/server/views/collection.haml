@@ -1,0 +1,15 @@
+-name = params[:name]
+-collection = params[:collection]
+
+%h2 #{name} >> #{collection} >> documents
+
+%table
+  %tr
+    %th 
+      %h3 Id
+    %th 
+      %h3 Values
+  -for document in documents(name, collection)
+    %tr
+      %td= document['_id']
+      %td= document.inspect

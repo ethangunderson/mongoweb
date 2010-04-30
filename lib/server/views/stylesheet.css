@@ -1,0 +1,28 @@
+html {
+  background-color: #f6f4cd; }
+
+#wrapper {
+  width: 800px;
+  margin-right: auto;
+  margin-left: auto; }
+  #wrapper #site {
+    padding: 15px;
+    background-color: #fdfcf7; }
+    #wrapper #site table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: left; }
+      #wrapper #site table a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.2em;
+        font-weight: 600; }
+      #wrapper #site table a:hover {
+        text-decoration: underline; }
+      #wrapper #site table td {
+        padding: 10px;
+        border: 1px solid black; }
+
+img {
+  float: right;
+  margin-top: 10  px; }

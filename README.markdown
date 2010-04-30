@@ -1,9 +1,7 @@
 Mongo_Web
 ========
 
-Mongo_Web is a sinatra application for viewing MongoDB databases.
-
-If the code looks a lot like resque_web, that would be because I borrowed heavily from their implementation.
+Mongo_Web is the stylish way of inspecting MongoDB databases.
 
 Installing
 ----------
@@ -13,15 +11,21 @@ gem install mongo_web
 Usage
 -----
 
-Mongo_Web just uses Vegas to wrap a Sinatra application, so it's pretty simple to start up, just run
+Starting MongoWeb is simple
 
     $ mongo-web
 
-You can also pass it a port to use
+You can also pass it a specific port
 
     $ mongo-web -p 6969
 
-Limitations
+TODO
 -----------
 
-It does not yet support GridFS
+Support for:
+* GridFS
+* Editing Data
+* Ports
+* Usernames, passwords
+
+![Screenshot] (http://img.skitch.com/20100430-jdmu6nxijpbmq5ur72gwayghs7.jpg)
