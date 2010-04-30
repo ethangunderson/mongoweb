@@ -1,7 +1,7 @@
-Mongo_Web
+MongoWeb
 ========
 
-Mongo_Web is the stylish way of inspecting MongoDB databases.
+MongoWeb is the stylish way of inspecting MongoDB databases.
 
 Installing
 ----------
@@ -23,9 +23,9 @@ TODO
 -----------
 
 Support for:
-* GridFS
-* Editing Data
-* Ports
-* Usernames, passwords
+*GridFS
+*Editing Data
+*Ports
+*Usernames, passwords
 
-![Screenshot] (http://img.skitch.com/20100430-jdmu6nxijpbmq5ur72gwayghs7.jpg)
+![Screenshot](http://img.skitch.com/20100430-jdmu6nxijpbmq5ur72gwayghs7.jpg)
