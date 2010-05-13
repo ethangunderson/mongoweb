@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.add_dependency "mongo"
   s.add_dependency "vegas",   ">= 0.1.2"
   s.add_dependency "sinatra", ">= 0.9.2"
+  s.add_dependency "haml"
 
   s.description = <<description
     Mongo_Web is a sinatra application for viewing MongoDB databases.
