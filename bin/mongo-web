@@ -9,4 +9,9 @@ rescue LoadError
 end  
 require 'server'
 
-Vegas::Runner.new(MongoWeb::Server, 'mongo-web')
+Vegas::Runner.new(
+  MongoWeb::Server, 
+  'mongo-web', 
+  { :before_run => MongoWeb::Server::MONGO_CONNECTION_SETUP },
+  &MongoWeb::Server::OPTIONS_SETUP
+) 
