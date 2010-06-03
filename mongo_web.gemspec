@@ -1,11 +1,11 @@
 Gem::Specification.new do |s|
   s.name              = 'mongo_web'
-  s.version           = '0.0.1'
+  s.version           = '0.0.2'
   s.date              = Time.now.strftime('%Y-%m-%d')
   s.summary           = "A web interface for viewing MongoDB databases"
   s.homepage          = "http://github.com/ethangunderson/mongo_web"
   s.email             = "ethan@ethangunderson.com"
-  s.authors           = [ "Ethan Gunderson" ]
+  s.authors           = [ "Ethan Gunderson", "Ryan Briones" ]
 
   s.files             = %w( README.markdown  )
   s.files            += Dir.glob("lib/**/*")
