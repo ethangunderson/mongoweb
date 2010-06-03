@@ -1,0 +1,8 @@
+%table
+  %tr
+    %th Key
+    %th Value
+  -@document.each do |key, value|
+    %tr
+      %td{ :class => 'key' }= key
+      %td{ :class => 'value' }= pretty_value(value)

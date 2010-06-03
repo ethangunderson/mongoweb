@@ -1,15 +1,9 @@
--name = params[:name]
--collection = params[:collection]
-
-%h2 #{name} >> #{collection} >> documents
-
 %table
   %tr
-    %th 
-      %h3 Id
-    %th 
-      %h3 Values
-  -for document in documents(name, collection)
+    %th ID
+    %th Values
+  -for document in documents(@database_name, @collection)
     %tr
-      %td= document['_id']
-      %td= document.inspect
+      %td{ :class => 'monospace' }
+        %a{ :href => "/database/#{@database_name}/#{@collection}/#{document['_id']}" }= document['_id']
+      %td{ :class => 'monospace' }= truncate(hash_without(document, '_id').inspect, 80)

@@ -2,6 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'haml'
 require 'mongo'
+require 'yajl'
 
 module MongoWeb
   class Server < Sinatra::Base
@@ -22,6 +23,7 @@ module MongoWeb
     
     dir = File.dirname(File.expand_path(__FILE__))
     set :views,  "#{dir}/server/views"
+    set :public, "public"
     set :static, true
     set :haml, { :format => :html5 }
     
@@ -68,7 +70,60 @@ module MongoWeb
       
       def documents(database_name, collection_name)   
         mongo.db(database_name)[collection_name].find()
-      end 
+      end
+      
+      def document(database_name, collection_name, id)
+        mongo.db(database_name)[collection_name].find_one({ '_id' => BSON::ObjectID.from_string(id) })
+      end
+      
+      def breadcrumbs
+        bc = []
+        
+        if @database_name && @collection && @document
+          bc << %Q{<a href="/overview">databases</a>}
+          bc << %Q{<a href="/database/#{@database_name}">#{@database_name}</a>}
+          bc << %Q{<a href="/database/#{@database_name}/#{@collection}">#{@collection}</a>}
+          bc << @document_id
+        elsif @database_name && @collection
+          bc << %Q{<a href="/overview">databases</a>}
+          bc << %Q{<a href="/database/#{@database_name}">#{@database_name}</a>}
+          bc << @collection
+        elsif @database_name
+          bc << %Q{<a href="/overview">databases</a>}
+          bc << @database_name
+        end
+        
+        bc
+      end
+      
+      def pretty_value(value)
+        case value
+        when String, Fixnum, BSON::ObjectID
+          value.to_s
+        when Hash, Array
+          "<pre>#{Yajl::Encoder.encode(value, :pretty => true)}</pre>"
+        else
+          value.inspect
+        end
+      end
+      
+      def truncate(text, length = 30, omission = '...')
+        return unless text
+        return text if text.length < length
+        
+        out_text_length = (length / 2).floor
+        text.slice(0, out_text_length) + omission + text.slice(-out_text_length, out_text_length)
+      end
+      
+      def hash_without(hash, *keys)
+        hash.inject({}) do |out, pair|
+          key, value = pair
+          next out if keys.include?(key)
+          
+          out[key] = value
+          out
+        end
+      end
     end
 
     get '/' do
@@ -87,12 +142,24 @@ module MongoWeb
       haml :overview
     end
     
-    get '/database/:name' do
+    get '/database/:database_name' do |database_name|
+      @database_name = database_name
       haml :database
     end
     
-    get '/database/:name/:collection' do
+    get '/database/:database_name/:collection' do |database_name, collection|
+      @database_name = database_name
+      @collection = collection
       haml :collection
+    end
+    
+    get '/database/:database_name/:collection/:id' do |database_name, collection, id|
+      @database_name = database_name
+      @collection = collection
+      @document_id = id
+      
+      @document = document(database_name, collection, id)
+      haml :document
     end
     
     get '/stylesheet.css' do

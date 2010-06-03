@@ -1,15 +1,9 @@
--name = params[:name]
-
-%h2 #{name} >> collections
-
 %table
   %tr
-    %th 
-      %h3 Name
-    %th 
-      %h3 Size
-  -for collection in collections(name)
+    %th Name
+    %th Size
+  -for collection in collections(@database_name)
     %tr
       %td
-        %a{:href => "#{name}/#{collection.name}"}= collection.name
+        %a{:href => "#{@database_name}/#{collection.name}"}= collection.name
       %td= collection.size

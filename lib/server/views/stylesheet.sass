@@ -1,49 +1,77 @@
-!dark_brown = #402817
-!light_brown = #F6F4CD
-!light_gray = #FDFCF7
+body
+  background-color= #CCC
+  font-family= Helvetica, Arial, sans-serif
 
-=plain_anchor
-  a
-    text-decoration: none
-    color: black
-    font:
-      size: 1.2em
-      weight: 600
-  a:hover
-    text-decoration: underline
+a
+  color= #000
 
-html
-  background-color= !light_brown
-
-h2
-  margin: 0px
-  font-size: 1.3em
+#container
+  background-color= #FFF
+  margin= 40px auto 0
+  width= 960px
+  -webkit-box-shadow= 0 0 5px rgba(0, 0, 0, .2)
+  -moz-box-shadow= 0 0 5px rgba(0, 0, 0, .2)
+  -webkit-border-radius= 5px
+  -moz-border-radius= 5px
   
-h3
-  margin:
-    top: 15px
-    bottom: 5px
-
-#wrapper
-  width: 800px
-  margin:
-    right: auto
-    left: auto
-  #site
-    -webkit-border-radius: 15px
-    -moz-border-radius: 15px
-    border: 2px solid
-      color= !dark_brown
-    padding: 15px
-    background-color= !light_gray
+  #header
+    h1
+      font-size= 1.5em
+      background-color= #77BED2
+      margin= 0
+      padding= 7px 0 7px 15px
+      -webkit-border-top-left-radius= 5px
+      -webkit-border-top-right-radius= 5px
+      -moz-border-radius-topleft= 5px
+      -moz-border-radius-topright= 5px
+    
+    ul
+      border-bottom= 1px solid #CCC
+      list-style= none
+      padding= 10px 0 10px 15px
+      margin= 0
+      overflow= auto
+      
+      li
+        float= left
+        margin-right= 15px
+        text-transform= uppercase
+        
+        &:after
+          :content '>>'
+          :padding-left 15px
+        
+        &:last-child
+          :font-weight bold
+          
+          &:after
+            :content ''
+        
+  #content
+    padding= 5px 15px 15px 15px
+    
     table
-      +plain_anchor
-      border-collapse: collapse
-      width: 100%
-      text-align: left
+      border-collapse= collapse
+      width= 100%
+      text-align= left
+      
+      th
+        padding= 10px
+        text-transform= uppercase
+      
       td
-        padding: 10px
-        border: 1px solid black
-img
-  float: right
-  margin-top: 10px
+        padding= 10px
+        border= 1px solid black
+        vertical-align= top
+        
+      td.monospace
+        font-family= monospace
+        
+      td.key
+        font-weight= bold
+
+#footer
+  margin= 0 auto 25px
+  padding-top= 10px
+  text-align= right
+  width= 960px

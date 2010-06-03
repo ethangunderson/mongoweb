@@ -4,8 +4,16 @@
     %title MongoWeb
     %link{ :href => '/stylesheet.css', :media => 'screen', :rel => 'stylesheet', :type => 'text/css'}
   %body
-    #wrapper
-      %h1 MongoWeb
-      #site= yield
-      %a{ :href => 'http://mongodb.org' }
-        %img{ :src => 'http://api.mongodb.org/wiki/current/attachments/132305/1605648.png' }
+    #container
+      #header
+        %h1 MongoWeb
+        
+        -unless breadcrumbs.empty?
+          %ul
+            -for breadcrumb in breadcrumbs
+              %li= breadcrumb
+      
+      #content= yield
+      
+    #footer
+      %img{ :src => '/images/PoweredMongoDBblue50.png' }
